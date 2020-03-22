@@ -59,7 +59,9 @@ exports.checkifuser = (req, res, next) => {
   let password = req.body.password;
   User.findOne({ email: email }).then(result => {
     if (!result) {
-      res.redirect("/user/login");
+      req.flash("loginErr", "Invalid Username or Password!");
+      const loginerr = req.flash("loginErr");
+      res.render("login", { loginerr: loginerr });
     } else {
       bcrypt.compare(password, result.password).then(ismatch => {
         if (ismatch) {
@@ -67,7 +69,7 @@ exports.checkifuser = (req, res, next) => {
           req.session.user = result;
           res.redirect("/user");
         } else {
-          req.flash("loginErr", "Invalid Username and Password!");
+          req.flash("loginErr", "Invalid Username or Password!");
           const loginerr = req.flash("loginErr");
           res.render("login", { loginerr: loginerr });
         }

@@ -9,7 +9,7 @@ router.get("/user/dispaycar/", auth.protect, usercontroler.dispalycart);
 router.get("/user/dispayregister", usercontroler.diplayregister);
 router.post("/user/register", usercontroler.registeruservalidation);
 router.get("/userlogin/", usercontroler.userlogin);
-router.post("/userlogin/", usercontroler.checkifuser);
+router.post("/userlogin", usercontroler.checkifuser);
 router.get("/user/purchase", auth.protect, usercontroler.purchasepage);
 router.post("/delet/product/:id", auth.protect, usercontroler.deletfromcart);
 router.get("/logout", usercontroler.logoutuser);
