@@ -37,7 +37,7 @@ exports.registeruservalidation = (req, res, next) => {
             password: hasedpassword
           });
           newuser.save().then(result => {
-            res.send("registered");
+            res.redirect('/userlogin/');
           });
         });
       } else {
