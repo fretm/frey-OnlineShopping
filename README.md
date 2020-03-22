@@ -1,6 +1,6 @@
 # Frey e-shopping
 
-> Frey e-shopping [fsgbshop.herokuapp.com/](https://fsgbshop.herokuapp.com/)
+> Frey e-shopping [freyshop](https://freyshop.herokuapp.com/)
 
 ## Technology Used
 
@@ -9,9 +9,6 @@
 - expressJs
 - ejs layout
 
-  
-
 ## Author
 
 - Frehiwot T
-
