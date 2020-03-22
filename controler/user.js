@@ -22,7 +22,8 @@ exports.dispalycart = async (req, res, next) => {
 };
 
 exports.diplayregister = (req, res, next) => {
-  res.render("register");
+  const regerr = req.flash("regerr");
+  res.render("register", { regerr: regerr });
 };
 
 exports.registeruservalidation = (req, res, next) => {
@@ -30,6 +31,7 @@ exports.registeruservalidation = (req, res, next) => {
   let password = req.body.password;
   User.findOne({ email: email })
     .then(result => {
+      console.log(result);
       if (!result) {
         bcrypt.hash(password, 12).then(hasedpassword => {
           const newuser = new User({
@@ -37,11 +39,13 @@ exports.registeruservalidation = (req, res, next) => {
             password: hasedpassword
           });
           newuser.save().then(result => {
-            res.redirect('/userlogin/');
+            res.redirect("/userlogin");
           });
         });
       } else {
-        res.redirect("/user/register");
+        req.flash("regErr", "email already registered!");
+        regerr = req.flash("regErr");
+        res.render("register", { regerr: regerr });
       }
     })
     .catch(err => {

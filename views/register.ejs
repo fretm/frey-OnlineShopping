@@ -27,14 +27,17 @@
             </div>
           </nav>
 <form action="/user/register" method="POST">
+  
     <div class="form-group">
+      <br>
+  <h5 style="color: rgb(206, 23, 23);"><%= regerr %></h5>
         <label for="exampleInputEmail1">Email address</label>
         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">password</label>
-        <input  name="password"type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+        <input  name="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1"> confirm Password</label>
